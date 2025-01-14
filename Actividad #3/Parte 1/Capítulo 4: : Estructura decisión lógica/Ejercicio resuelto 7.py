@@ -16,18 +16,18 @@ def comparar_numeros():
 
         messagebox.showinfo("Resultado", resultado)
     except ValueError:
-        messagebox.showerror("Error", "Por favor, ingrese valores numéricos válidos.")
+        messagebox.showerror("Error", "Por favor, ingrese valores numericos validos.")
 
 
 ventana = tk.Tk()
-ventana.title("Comparador de Números")
+ventana.title("Comparador de Numeros")
 
-etiqueta_a = tk.Label(ventana, text="Ingrese el número A:")
+etiqueta_a = tk.Label(ventana, text="Ingrese el numero A:")
 etiqueta_a.grid(row=0, column=0, padx=10, pady=10)
 entrada_a = tk.Entry(ventana)
 entrada_a.grid(row=0, column=1, padx=10, pady=10)
 
-etiqueta_b = tk.Label(ventana, text="Ingrese el número B:")
+etiqueta_b = tk.Label(ventana, text="Ingrese el numero B:")
 etiqueta_b.grid(row=1, column=0, padx=10, pady=10)
 entrada_b = tk.Entry(ventana)
 entrada_b.grid(row=1, column=1, padx=10, pady=10)
