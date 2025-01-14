@@ -62,12 +62,24 @@ class TrianguloRectangulo:
         Button(frame, text="Calcular", command=self.calcular, bg="#800000", fg="#ffffff").grid(row=2, column=0, columnspan=2, pady=10, sticky="nsew")
 
     def calcular(self):
-        area = (self.base.get() * self.altura.get()) / 2
-        hipotenusa = math.sqrt(self.base.get() ** 2 + self.altura.get() ** 2)
-        perimetro = self.base.get() + self.altura.get() + hipotenusa
+        base = self.base.get()
+        altura = self.altura.get()
+        hipotenusa = math.sqrt(base ** 2 + altura ** 2)
+        area = (base * altura) / 2
+        perimetro = base + altura + hipotenusa
+        tipo_triangulo = self.determinar_tipo_de_triangulo(base, altura, hipotenusa)
         Label(frame2, text=f"Area: {area:.2f}", bg="#ffdab9", fg="#800000", font=("Arial", 12)).grid(row=3, column=0, columnspan=2, sticky="nsew")
         Label(frame2, text=f"Perimetro: {perimetro:.2f}", bg="#ffdab9", fg="#800000", font=("Arial", 12)).grid(row=4, column=0, columnspan=2, sticky="nsew")
+        Label(frame2, text=f"El triangulo es: {tipo_triangulo}", bg="#ffdab9", fg="#800000", font=("Arial", 12)).grid(row=5, column=0, columnspan=2, sticky="nsew")
 
+    def determinar_tipo_de_triangulo(self, base, altura, hipotenusa):
+        if math.isclose(base, altura) and math.isclose(base, hipotenusa):
+            return "Equilátero"
+        elif not math.isclose(base, altura) and not math.isclose(base, hipotenusa) and not math.isclose(altura, hipotenusa):
+            return "Escaleno"
+        else:
+            return "Isósceles"
+        
 class Rombo:
     def __init__(self, frame):
         limpiar_frame(frame)
@@ -113,15 +125,15 @@ class Trapecio:
         Label(frame2, text=f"Perimetro: {perimetro:.2f}", bg="#ffdab9", fg="#800000", font=("Arial", 12)).grid(row=4, column=0, columnspan=2, sticky="nsew")
 
         
-root = Tk()
-root.title("Figuras Geometricas")
-root.geometry("600x400")
-root.configure(bg="#ffdab9")
+ventana = Tk()
+ventana.title("Figuras Geometricas")
+ventana.geometry("600x400")
+ventana.configure(bg="#ffdab9")
 
-frame1 = Frame(root, bg="#ffdab9", relief="sunken", borderwidth=2)
+frame1 = Frame(ventana, bg="#ffdab9", relief="sunken", borderwidth=2)
 frame1.pack(side=LEFT, fill=BOTH, expand=True, padx=10, pady=10)
 
-frame2 = Frame(root, bg="#ffdab9", relief="sunken", borderwidth=2)
+frame2 = Frame(ventana, bg="#ffdab9", relief="sunken", borderwidth=2)
 frame2.pack(side=RIGHT, fill=BOTH, expand=True, padx=10, pady=10)
 
 Label(frame1, text="Seleccione la figura a calcular:", bg="#ffdab9", fg="#800000", font=("Arial", 14, "bold")).pack(pady=10)
@@ -151,4 +163,4 @@ Button(frame1, text="Triangulo Rectangulo", command=mostrar_triangulo_rectangulo
 Button(frame1, text="Rombo", command=mostrar_rombo, bg="#800000", fg="#ffffff", font=("Arial", 12)).pack(fill=X, padx=10, pady=5)
 Button(frame1, text="Trapecio", command=mostrar_trapecio, bg="#800000", fg="#ffffff", font=("Arial", 12)).pack(fill=X, padx=10, pady=5)
 
-root.mainloop()
+ventana.mainloop()
