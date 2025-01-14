@@ -39,10 +39,10 @@ def calcular_salario():
 
 
 ventana = tk.Tk()
-ventana.title("Cálculo de Salario de Empleados")
+ventana.title("Calculo de Salario de Empleados")
 
 
-etiqueta_codigo = tk.Label(ventana, text="Código del empleado:")
+etiqueta_codigo = tk.Label(ventana, text="Codigo del empleado:")
 etiqueta_codigo.grid(row=0, column=0, padx=10, pady=5)
 entrada_codigo = tk.Entry(ventana)
 entrada_codigo.grid(row=0, column=1, padx=10, pady=5)
@@ -66,7 +66,7 @@ entrada_valor_hora = tk.Entry(ventana)
 entrada_valor_hora.grid(row=3, column=1, padx=10, pady=5)
 
 
-etiqueta_retencion = tk.Label(ventana, text="Retención en la fuente (%):")
+etiqueta_retencion = tk.Label(ventana, text="Retencion en la fuente (%):")
 etiqueta_retencion.grid(row=4, column=0, padx=10, pady=5)
 entrada_retencion = tk.Entry(ventana)
 entrada_retencion.grid(row=4, column=1, padx=10, pady=5)
