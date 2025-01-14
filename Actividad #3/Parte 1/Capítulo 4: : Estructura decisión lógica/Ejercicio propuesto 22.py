@@ -34,7 +34,7 @@ def calcular():
 
 
 ventana = tk.Tk()
-ventana.title("Cálculo Salario Mensual")
+ventana.title("Calculo Salario Mensual")
 
 tk.Label(ventana, text="Nombre:").grid(row=0, column=0, padx=10, pady=10)
 entrada_nombre = tk.Entry(ventana)
